@@ -1,0 +1,55 @@
+<p>user-component works!</p>
+<section id="user-section">
+  <div class="formContainer">
+    <form (ngSubmit)="onSubmit()" id="guardar">
+      <h2>Guardar Usuario</h2>
+      <div class="fieldsWrapper">
+        <label for="">Usuario</label>
+        <input type="text" placeholder="Escribe tu usuario..." name="usuario" [(ngModel)]="newUser.usuario">
+      </div>
+      <div class="fieldsWrapper">
+        <label for="">Edad</label>
+        <input type="text" name="edad" [(ngModel)]="newUser.edad">
+      </div>
+      <div class="fieldsWrapper">
+        <label for="">Email</label>
+        <input type="email" placeholder="Escribe tu correo..." name="email" [(ngModel)]="newUser.email">
+      </div>
+      <button id="saveBtn" type="submit">Enviar</button>
+    </form>
+    <!-- !      -->
+    <form id="actualizar">
+      <h2>Actualizar Usuario</h2>
+      <div class="fieldsWrapper">
+        <label for="">ID</label>
+        <input type="text" placeholder="Escribe el ID..." name="id" [(ngModel)]="userId">
+      </div>
+      <div class="fieldsWrapper">
+        <label for="">Usuario</label>
+        <input type="text" placeholder="Escribe tu usuario..." name="usuario" [(ngModel)]="userToUpdate.usuario">
+      </div>
+      <div class="fieldsWrapper">
+        <label for="">Edad</label>
+        <input type="text" name="edad" [(ngModel)]="userToUpdate.edad">
+      </div>
+      <div class="fieldsWrapper">
+        <label for="">Email</label>
+        <input type="email" placeholder="Escribe tu correo..." name="email" [(ngModel)]="userToUpdate.email">
+      </div>
+      <button id="updateBtn" type="submit" (click)="updateUser()">Actualizar</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <div *ngFor="let user of users" class="user_wrapper">
+      <div class="user-info">
+        <p> <b>Usuario:</b> {{user.usuario}}</p>
+        <p> <b>Edad:</b> {{user.edad}} </p>
+        <p> <b>Email:</b> {{user.email}}</p>
+      </div>
+      <button id="deleteBtn" (click)="deleteUser(user.id)">Borrar</button>
+    </div>
+  </div>
+
+
+</section>
